@@ -33,7 +33,7 @@ p {
 
 main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
     grid-template-areas:
         "item-1 item-1"
         "item-2 item-3"
@@ -47,22 +47,82 @@ main div:nth-of-type(1) {
 
 main div:nth-of-type(2) {
     grid-area: item-2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mockup-gfx {
+    max-width: 100%;
 }
 
 main div:nth-of-type(3) {
     grid-area: item-3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1rem 3rem;
+    max-width: 460px;
+}
+
+main div:nth-of-type(3) p {
+    margin-top: 1.75rem;
+    margin-bottom: 0;
 }
 
 main div:nth-of-type(4) {
     grid-area: item-4;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
 }
 
 main div:nth-of-type(4) a {
     text-decoration: none;
 }
 
+main div:nth-of-type(4) a:hover {
+    border: 2px solid hsl(300, 69%, 71%);
+}
+
+main div:nth-of-type(4) a:hover svg path {
+    stroke: hsl(300, 69%, 71%) !important;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.icons svg {
+    max-width: 20px;
+}
+
 .logo {
     margin-top: 3rem;
+    margin-bottom: 80px;
+    max-width: 200px;
+}
+
+h1 {
+    font-size: 2.25rem;
+    margin-top: 2rem;
+    text-align: left;
+    line-height: 3.25rem;
+    margin-bottom: 0;
+}
+
+p {
+    line-height: 1.5rem;
 }
 
 .reg-btn {
@@ -71,6 +131,14 @@ main div:nth-of-type(4) a {
     padding: .75rem 3rem;
     border-radius: 10rem;
     text-decoration: none;
+    margin-top: 1.5rem;
+    box-shadow: 0 2px 10px 0 hsl(257, 40%, 29%);
+    font-family: 'Poppins', sans-serif;
+}
+
+.reg-btn:hover {
+    background-color: hsl(300, 69%, 71%);
+    color: #fff;
 }
 
 footer {
@@ -81,4 +149,55 @@ footer {
 footer a {
     color: hsl(300, 69%, 71%);
     font-weight: 700;
+}
+
+@media screen and (max-width: 1024px) {
+    body {
+        padding: 1rem 2rem;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "item-1"
+            "item-2"
+            "item-3"
+            "item-4";
+        max-width: 1280px;
+    }
+
+    .logo {
+        max-width: 150px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 1.5rem;
+        line-height: 2.25rem;
+    }
+
+    main div:nth-of-type(3) {
+        margin: auto;
+        padding-top: 4rem;
+        text-align: center;
+    }
+
+    .reg-btn {
+        margin: auto;
+        margin-top: 1.5rem;
+    }
+
+    main div:nth-of-type(3) {
+        padding: 0 .25rem;
+    }
+
+    main div:nth-of-type(3) p {
+        margin-top: 1.25rem;
+    }
+
+    main div:nth-of-type(4) {
+        justify-content: center;
+        padding-top: 4rem;
+    }
 }
